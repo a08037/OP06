@@ -1,0 +1,29 @@
+import random
+
+def choose_students(students, num_choices=5):
+    """
+    Выбирает случайным образом студентов из списка.
+    """
+    if num_choices > len(students):
+        raise ValueError("Количество выборок больше, чем количество студентов в списке.")
+    return random.sample(students, num_choices)
+
+def main():
+    # Список студентов
+    students = [
+        "Петр Синицын", "Катерина Иванова", "Василий Сидоров", 
+        "Мария Петрова", "Анна Ефимова", "Елена Пирогова",
+        "Алексей Смирнов", "Сергей Новиков", "Ольга Варлахина",
+        "Наталья Артамонова"
+    ]
+
+    try:
+        selected_students = choose_students(students)
+        print("Студенты, которые будут отвечать на уроке:")
+        for student in selected_students:
+            print(student)
+    except ValueError as e:
+        print(e)
+
+if __name__ == "__main__":
+    main()
